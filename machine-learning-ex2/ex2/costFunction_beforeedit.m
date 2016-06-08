@@ -21,19 +21,14 @@ grad = zeros(size(theta));
 %
 
 
+h = (1 + e.^(-X * theta) ).^-1
 
-J = sum( (-y'*log((1 + e.^(-X * theta) ).^-1) - (1-y)' * log(1-(1 + e.^(-X * theta) ).^-1) ))/ (length(y))
-
-
-
-h =(1 + e.^(-X * theta) ).^-1;
-e = (h - y);
-grade = X' * e;
-grad= grade * (1 / (length(y)));
+y1= -y'*log(h)
+y0 = (1-y)' * log(1-h)
+J = sum( (y1 - y0 ))/ (length(y))
+grad = (sum(h-y) * X)/ length(y)
 
 
-disp(size(grad))
-disp(size(theta))
 
 
 
