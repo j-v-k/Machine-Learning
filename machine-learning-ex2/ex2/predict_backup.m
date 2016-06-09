@@ -18,10 +18,14 @@ values = sigmoid(X *theta)
 
 
 
+for iter = 1:(m)
+   
+   if sigmoid(X * theta)(iter) >= 0.5
+       p(iter) = 1;
+   else
+       p(iter) = 0;
 
-p = values >= .5
 
 
-
-
+end
 end
