@@ -18,8 +18,14 @@ grad = zeros(size(theta));
 %               derivatives of the cost w.r.t. each parameter in theta
 
 
+J = sum( (-y'*log((1 + e.^(-X * theta) ).^-1) - (1-y)' * log(1-(1 + e.^(-X * theta) ).^-1) ))/ (length(y)) + (lambda/m)*theta(2:end,:)'
 
 
+
+h =(1 + e.^(-X * theta) ).^-1;
+e = (h - y);
+grade = X' * e;
+grad= (grade * (1 / (length(y))))+ (lambda/m)*theta(2:end,:)';
 
 
 % =============================================================
