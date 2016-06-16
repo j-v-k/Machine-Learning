@@ -45,11 +45,11 @@ J =  sum( (y1 - y0 ))/m  +(lambda/(2*m))*sum(theta(2:end).^2);
 
 e = (h - y);
 grade = X'(2:end,:) * e;
-disp(size(grade))
+
 grad(2:end)= (grade * (1 / m))+ (lambda/m)* theta(2:end);
 
 grade = X'(1,:) * e;
-grad(1) =(grade * (1 / m))
+grad(1) =(grade * (1 / m));
 
 
 
